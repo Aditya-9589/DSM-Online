@@ -4,17 +4,14 @@ import Image from "next/image";
 
 export default function ProfileHeaderCard() {
     return (
-        <div className="card relative overflow-hidden">
-            {/* Gradient Top Strip */}
-            <div className="h-2 bg-primary-gradient" />
-
-            <div className="p-5 md:p-6">
+        <div className="card relative overflow-hidden rounded-[16px] sm:rounded-[20px] md:rounded-[24px]">
+            <div className="p-4 sm:p-5 md:p-8">
                 {/* Top Section */}
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-5">
                     {/* Left */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3 sm:gap-4">
                         {/* Avatar */}
-                        <div className="w-16 h-16 rounded-full overflow-hidden border border-[var(--border-light)]">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden border border-[var(--border-light)] shrink-0">
                             <Image
                                 src="/images/user-profile.png"
                                 width={64}
@@ -25,48 +22,26 @@ export default function ProfileHeaderCard() {
                         </div>
 
                         {/* Name + Badge */}
-                        <div>
-                            <h2 className="text-heading text-lg font-semibold">
+                        <div className="min-w-0">
+                            <h2 className="text-heading text-base sm:text-lg font-semibold">
                                 Aisha Sheikh
                             </h2>
 
-                            <div className="flex items-center gap-2 mt-1">
-                                <span className="text-muted text-xs">
+                            <div className="flex items-center gap-2 mt-0.5 sm:mt-1">
+                                <span className="text-muted text-[10px] sm:text-xs">
                                     Manage your detail with ease
                                 </span>
                             </div>
-                            <div className="flex items-center gap-2 mt-1">
-                                <span className="text-muted text-xs">
+                            <div className="flex items-start gap-1 sm:gap-2 mt-0.5 sm:mt-1">
+                                <span className="text-muted text-[10px] sm:text-xs shrink-0">
                                     Address: 
-                                        <span className="text-black text-sm" > 
-                                            2118 Thornridge Cir. Syracuse, Connecticut 35679
-                                        </span>
+                                </span>
+                                <span className="text-black text-xs sm:text-sm break-words">
+                                    2118 Thornridge Cir. Syracuse, Connecticut 35679
                                 </span>
                             </div>
                         </div>
                     </div>
-
-                    {/* Right Wallet */}
-                    {/* <div className="bg-section rounded-xl px-5 py-3 flex items-center gap-6">
-                        <div>
-                            <p className="text-muted text-xs">Wallet Coins</p>
-                            <p className="text-heading font-semibold text-base">2450</p>
-                        </div>
-
-                        <div className="w-px h-10 bg-[var(--border-light)]" />
-
-                        <div>
-                            <p className="text-muted text-xs">Total Orders</p>
-                            <p className="text-heading font-semibold text-base">32</p>
-                        </div>
-
-                        <div className="w-px h-10 bg-[var(--border-light)]" />
-
-                        <div>
-                            <p className="text-muted text-xs">Wishlist</p>
-                            <p className="text-heading font-semibold text-base">12</p>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </div>

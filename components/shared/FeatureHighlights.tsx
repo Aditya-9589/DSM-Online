@@ -25,17 +25,27 @@ const features = [
 
 export default function FeatureHighlights() {
     return (
-        <section className="bg-white border border-[var(--border-light)] rounded-2xl p-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <section>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
                 {features.map((item, i) => (
-                    <div key={i} className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-section rounded-xl flex items-center justify-center">
-                            <Image src={item.icon} width={24} height={24} alt={item.title} />
+                    <div key={i} className="bg-white border border-[var(--border-light)] rounded-[14px] sm:rounded-[16px] md:rounded-[20px] overflow-hidden shadow-sm flex flex-col items-center text-center pb-4 sm:pb-5 md:pb-6">
+                        {/* Top Orange Background with centered icon overlapping */}
+                        <div className="w-full h-10 sm:h-12 md:h-16 bg-primary-gradient relative flex justify-center">
+                            <div className="absolute -bottom-5 sm:-bottom-6 md:-bottom-8 flex items-center justify-center">
+                                <Image
+                                    src={item.icon}
+                                    width={56}
+                                    height={56}
+                                    alt={item.title}
+                                    className="object-contain drop-shadow-md w-[36px] h-[36px] sm:w-[44px] sm:h-[44px] md:w-[56px] md:h-[56px]"
+                                />
+                            </div>
                         </div>
 
-                        <div>
-                            <p className="text-heading font-semibold text-sm">{item.title}</p>
-                            <p className="text-muted text-xs">{item.desc}</p>
+                        {/* Bottom Content */}
+                        <div className="pt-8 sm:pt-10 md:pt-12 px-2 sm:px-3 md:px-4">
+                            <p className="text-[#D26D19] font-bold text-[11px] sm:text-[13px] md:text-[15px] mb-1 sm:mb-1.5">{item.title}</p>
+                            <p className="text-[#4B5563] text-[9px] sm:text-[10px] md:text-[11px] font-medium">{item.desc}</p>
                         </div>
                     </div>
                 ))}

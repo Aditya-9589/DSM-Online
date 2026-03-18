@@ -1,7 +1,7 @@
 "use client";
 
 import ProfileCardWrapper from "./ProfileCardWrapper";
-import Image from "next/image";
+import { MapPin, Edit, PlusSquare } from "lucide-react";
 
 const addresses = [
     {
@@ -10,100 +10,70 @@ const addresses = [
         state: "Madhya Pradesh",
         city: "Bhopal",
         ZipCode: "462001",
-        street: "2118 Satya Kabir E solution, indrapuri, C sector",
-        // name: "Aisha Sheikh",
-        // phone: "+91 9876543210",
-        // address:
-        //     "Plot no 3 -113 R3 ground floor, C-sector, Indrapuri, Bhopal, Madhya Pradesh 462022",
+        street: "2118 Satya Kabeer E solution indrapuri C sector",
     },
-    // {
-    //     id: 2,
-    //     name: "Office Address",
-    //     phone: "+91 9123456789",
-    //     address:
-    //         "DSM Electro Pvt Ltd, Zone-2 MP Nagar, Near Jyoti Talkies, Bhopal, Madhya Pradesh",
-    // },
 ];
 
 export default function AddressCard() {
+    const address = addresses[0];
+
     return (
         <ProfileCardWrapper
             title="Address"
+            description="Manage your details with ease."
             action={
-                <button className="bg-primary-gradient text-white px-4 py-1.5 rounded-lg text-sm font-medium hover:opacity-90 transition">
-                    + Add New
-                </button>
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                    <button className="bg-primary-gradient text-white flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition hover:shadow-md">
+                        <PlusSquare size={12} className="sm:w-3.5 sm:h-3.5" />
+                        <span>Add Address</span>
+                    </button>
+                    <button className="bg-primary-gradient text-white flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition hover:shadow-md">
+                        <span>Edit</span>
+                        <Edit size={12} className="sm:w-3.5 sm:h-3.5" />
+                    </button>
+                </div>
             }
         >
-            {/* Address Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {addresses.map((item) => (
-                    <div
-                        key={item.id}
-                        className="border border-[var(--border-light)] rounded-[14px] p-4 bg-white relative hover:shadow-sm transition"
-                    >
-                        {/* Actions */}
-                        <div className="absolute top-3 right-3 flex gap-2">
-                            <button className="p-1 hover:bg-gray-100 rounded transition">
-                                <Image
-                                    src="/icons/edit-icon.png"
-                                    width={16}
-                                    height={16}
-                                    alt="edit"
-                                />
-                            </button>
-
-                            <button className="p-1 hover:bg-gray-100 rounded transition">
-                                <Image
-                                    src="/icons/delete-icon.png"
-                                    width={16}
-                                    height={16}
-                                    alt="delete"
-                                />
-                            </button>
-                        </div>
-
-                        {/* Content */}
-                        <div>
-                            <p className="text-muted text-xs mb-1">Country</p>
-                            <p className="text-heading font-medium text-sm">
-                                {item.country}
-                            </p>
-
-                            <p className="text-muted text-xs mb-1">State</p>
-                            <p className="text-heading font-medium text-sm">
-                                {item.state}
-                            </p>
-                        </div>
-
-                        <div>
-                            <p className="text-muted text-xs mb-1">City</p>
-                            <p className="text-heading font-medium text-sm">
-                                {item.city}
-                            </p>
-
-                            <p className="text-muted text-xs mb-1">Zip Code</p>
-                            <p className="text-heading font-medium text-sm">
-                                {item.ZipCode}
-                            </p>
-                        </div>
-
-                        <div>
-                            <p className="text-muted text-xs mb-1">Street</p>
-                            <p className="text-heading font-medium text-sm">
-                                {item.street}
-                            </p>
-                        </div>
-
-                        {/* <p className="text-heading font-semibold text-sm mb-1">
-                            {item.name}
-                        </p> */}
-
-                        {/* <p className="text-body text-sm mb-2">{item.phone}</p> */}
-
-                        {/* <p className="text-muted text-sm leading-relaxed">{item.address}</p> */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-5 sm:gap-y-8 gap-x-6 sm:gap-x-10 text-sm mt-1 sm:mt-2">
+                <div>
+                    <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2 text-muted">
+                        <MapPin size={14} className="sm:w-4 sm:h-4 shrink-0" />
+                        <p className="text-xs sm:text-sm">Country</p>
                     </div>
-                ))}
+                    <p className="text-heading font-medium text-sm sm:text-base">{address.country}</p>
+                </div>
+
+                <div>
+                    <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2 text-muted">
+                        <MapPin size={14} className="sm:w-4 sm:h-4 shrink-0" />
+                        <p className="text-xs sm:text-sm">State</p>
+                    </div>
+                    <p className="text-heading font-medium text-sm sm:text-base">{address.state}</p>
+                </div>
+
+                <div>
+                    <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2 text-muted">
+                        <MapPin size={14} className="sm:w-4 sm:h-4 shrink-0" />
+                        <p className="text-xs sm:text-sm">City</p>
+                    </div>
+                    <p className="text-heading font-medium text-sm sm:text-base">{address.city}</p>
+                </div>
+
+                <div>
+                    <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2 text-muted">
+                        <MapPin size={14} className="sm:w-4 sm:h-4 shrink-0" />
+                        <p className="text-xs sm:text-sm">Zip Code</p>
+                    </div>
+                    <p className="text-heading font-medium text-sm sm:text-base">{address.ZipCode}</p>
+                </div>
+
+                <div className="col-span-1 sm:col-span-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2 text-muted">
+                        <MapPin size={14} className="sm:w-4 sm:h-4 shrink-0" />
+                        <p className="text-xs sm:text-sm">Street</p>
+                    </div>
+                    <p className="text-heading font-medium text-sm sm:text-base">{address.street}</p>
+                </div>
             </div>
         </ProfileCardWrapper>
     );

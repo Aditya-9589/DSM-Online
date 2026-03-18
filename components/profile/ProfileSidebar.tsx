@@ -23,38 +23,39 @@ const menu: MenuItem[] = [
 
 export default function ProfileSidebar() {
     return (
-        <div className="card p-4">
-            <ul className="space-y-2">
+        <div className="card p-3 sm:p-4">
+            <ul className="space-y-1 sm:space-y-2">
                 {menu.map((item, i) => (
                     <li
                         key={i}
-                        className={`flex items-center gap-3 p-3 rounded-xl cursor-pointer text-sm font-medium transition
+                        className={`flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3.5 px-3 sm:px-5 rounded-[10px] sm:rounded-[12px] cursor-pointer text-xs sm:text-sm font-medium transition
                             ${item.active
-                                ? "bg-primary-gradient text-white"
+                                ? "bg-primary-gradient text-white shadow-md"
                                 : "hover:bg-gray-100 text-body"
                             }`}
                     >
-                        {/* <item.icon size={18} /> */}
-                        <Image
-                            src={item.icon}
-                            // src={item.active ? item.activeIcon : item.icon}
-                            width={18}
-                            height={18}
-                            alt={item.label}
-                        />
+                        <div className={`flex items-center justify-center shrink-0 ${item.active ? "brightness-0 invert" : ""}`}>
+                            <Image
+                                src={item.icon}
+                                width={18}
+                                height={18}
+                                alt={item.label}
+                                className="w-[16px] h-[16px] sm:w-[20px] sm:h-[20px]"
+                            />
+                        </div>
                         {item.label}
                     </li>
                 ))}
             </ul>
 
             {/* Membership Banner */}
-            <div className="mt-6">
+            <div className="mt-4 sm:mt-6">
                 <Image
                     src="/images/poster.png"
                     width={300}
                     height={150}
                     alt="membership"
-                    className="rounded-xl"
+                    className="rounded-xl w-full h-auto"
                 />
             </div>
         </div>

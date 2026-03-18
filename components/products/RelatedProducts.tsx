@@ -38,11 +38,11 @@ const products = [
 export default function RelatedProducts() {
     return (
         <section>
-            <h2 className="text-heading text-xl font-semibold mb-6">
+            <h2 className="text-heading text-lg sm:text-xl font-semibold mb-4 sm:mb-6">
                 Related Products
             </h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
                 {products.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}

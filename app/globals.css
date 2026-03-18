@@ -42,6 +42,7 @@ body {
   background: var(--bg-page);
   color: var(--text-body);
   font-family: var(--font-geist-sans);
+  overflow-x: hidden;
 }
 
 /* =========================
@@ -81,5 +82,17 @@ body {
 .container-main {
   max-width: 1400px;
   margin-inline: auto;
-  padding-inline: 24px;
+  padding-inline: 12px;
+}
+
+@media (min-width: 640px) {
+  .container-main {
+    padding-inline: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-main {
+    padding-inline: 24px;
+  }
 }
