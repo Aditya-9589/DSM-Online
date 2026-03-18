@@ -23,7 +23,7 @@ const menu: MenuItem[] = [
 
 export default function ProfileSidebar() {
     return (
-        <div className="card p-3 sm:p-4">
+        <div className="card p-4 sm:p-5 md:p-6 h-full flex flex-col">
             <ul className="space-y-1 sm:space-y-2">
                 {menu.map((item, i) => (
                     <li
@@ -49,7 +49,7 @@ export default function ProfileSidebar() {
             </ul>
 
             {/* Membership Banner */}
-            <div className="mt-4 sm:mt-6">
+            <div className="mt-auto pt-4 sm:pt-6">
                 <Image
                     src="/images/poster.png"
                     width={300}

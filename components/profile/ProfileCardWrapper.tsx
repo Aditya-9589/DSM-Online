@@ -16,9 +16,9 @@ export default function ProfileCardWrapper({
     action,
 }: ProfileCardWrapperProps) {
     return (
-        <div className="card p-4 sm:p-5 md:p-8 rounded-[16px] sm:rounded-[20px] md:rounded-[24px]">
+        <div className="card p-4 sm:p-5 md:p-8 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] min-w-0">
             {/* Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6">
+            <div className="flex flex-col items-start sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6">
                 <div>
                     <h3 className="text-heading text-base sm:text-lg md:text-xl font-bold">
                         {title}

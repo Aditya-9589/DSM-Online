@@ -72,7 +72,7 @@ export default function AddressCard() {
                         <MapPin size={14} className="sm:w-4 sm:h-4 shrink-0" />
                         <p className="text-xs sm:text-sm">Street</p>
                     </div>
-                    <p className="text-heading font-medium text-sm sm:text-base">{address.street}</p>
+                    <p className="text-heading font-medium text-sm sm:text-base break-words">{address.street}</p>
                 </div>
             </div>
         </ProfileCardWrapper>

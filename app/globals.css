@@ -38,11 +38,17 @@
    BASE
 ========================= */
 
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 body {
   background: var(--bg-page);
   color: var(--text-body);
   font-family: var(--font-geist-sans);
-  overflow-x: hidden;
 }
 
 /* =========================

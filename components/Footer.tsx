@@ -2,12 +2,12 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Twitter, Linkedin, Instagram, Facebook, Youtube, MapPin, Phone, Mail, Send, ChevronRight } from 'lucide-react';
+import { Twitter, Linkedin, Instagram, Facebook, Youtube, ChevronRight } from 'lucide-react';
 
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-black text-gray-400 py-8 px-6 font-sans">
+    <footer className="w-full bg-black text-gray-400 py-8 px-4 sm:px-6 font-sans overflow-x-clip">
       <div className="max-w-7xl mx-auto space-y-6">
 
 
@@ -27,7 +27,7 @@ const Footer = () => {
             Our focus on customer satisfaction and expert technical support make us the ideal single-point source for all your requirements.
           </div>
 
-          <div className="flex flex-col gap-3 min-w-[160px]">
+          <div className="flex w-full flex-col gap-3 min-w-0 sm:w-auto sm:min-w-[160px]">
             <a href="#" className="hover:opacity-80 transition-opacity">
               <Image src="/playstore.png" alt="Get it on Google Play" width={140} height={42} className="h-auto w-auto" />
             </a>
@@ -43,20 +43,20 @@ const Footer = () => {
 
           {/* Left Side - Links Column */}
           <div className="bg-[#111111] rounded-3xl p-8 flex-1 border border-white/5">
-            <div className="mb-6 relative">
+            <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
 
+              <div>
               <h2 className="text-3xl font-bold text-white mb-2 leading-tight">
                 Before you go,<br />check out these links
               </h2>
-              <div className="absolute -bottom-6 right-10">
-                <div className="relative group">
-                  <div className="absolute -top-6 -left-8 text-[#E47B25] rotate-12 group-hover:rotate-0 transition-transform">
-                    <ChevronRight size={40} className="rotate-180" />
-                  </div>
-                  <button className="bg-gradient-to-r from-[#E47B25] to-[#B3520A] text-white px-8 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
-                    Important Links
-                  </button>
+              </div>
+              <div className="relative group self-start lg:self-auto lg:mb-1">
+                <div className="absolute -top-6 -left-8 text-[#E47B25] rotate-12 group-hover:rotate-0 transition-transform">
+                  <ChevronRight size={40} className="rotate-180" />
                 </div>
+                <button className="bg-gradient-to-r from-[#E47B25] to-[#B3520A] text-white px-8 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap">
+                  Important Links
+                </button>
               </div>
             </div>
 
@@ -92,15 +92,15 @@ const Footer = () => {
           </div>
 
           {/* Right Side - Contact Us */}
-          <div className="bg-[#111111] rounded-3xl p-8 lg:w-[400px] border border-white/5 relative flex flex-col">
-            <div className="flex justify-between items-start mb-6">
+          <div className="bg-[#111111] rounded-3xl p-8 lg:w-[400px] border border-white/5 relative flex flex-col min-w-0">
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-start mb-6">
               <h2 className="text-2xl font-bold text-white">Contact Us</h2>
 
-              <div className="absolute top-10 right-4 group">
+              <div className="relative group self-start">
                 <button className="bg-gradient-to-r from-[#E47B25] to-[#B3520A] text-white px-4 py-2 rounded-full text-xs font-semibold hover:opacity-90 transition-opacity">
                   Collaborate With us
                 </button>
-                <div className="absolute -left-6 -top-4 text-[#E47B25] -rotate-12">
+                <div className="absolute -left-6 -top-4 text-[#E47B25] -rotate-12 pointer-events-none">
                   <ChevronRight size={30} className="rotate-[160deg]" />
                 </div>
               </div>
@@ -139,7 +139,7 @@ const Footer = () => {
             {/* Newsletter */}
             <div className="mt-4 pt-4 border-t border-white/5">
 
-              <div className="flex bg-[#EFEFEF] rounded-full overflow-hidden p-1 shadow-inner">
+              <div className="flex flex-col sm:flex-row bg-[#EFEFEF] rounded-[24px] sm:rounded-full overflow-hidden p-1 shadow-inner gap-1">
                 <input
                   type="email"
                   placeholder="Enter your email"
@@ -155,7 +155,7 @@ const Footer = () => {
         </div>
 
         {/* Social Icons Bottom */}
-        <div className="flex items-center justify-end gap-4 pt-4 border-t border-white/5">
+        <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 pt-4 border-t border-white/5">
 
           {[
             { Icon: Twitter, name: 'x' },
@@ -163,7 +163,7 @@ const Footer = () => {
             { Icon: Instagram, name: 'instagram' },
             { Icon: Facebook, name: 'facebook' },
             { Icon: Youtube, name: 'youtube' }
-          ].map(({ Icon, name }, idx) => (
+          ].map(({ Icon }, idx) => (
             <div key={idx} className="bg-[#111111] p-3 rounded-lg border border-white/5 cursor-pointer hover:bg-orange-600 hover:border-orange-500 transition-all group">
               <Icon size={18} className="text-gray-400 group-hover:text-white transition-colors" />
             </div>
