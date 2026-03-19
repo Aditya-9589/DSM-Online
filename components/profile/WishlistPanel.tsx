@@ -7,7 +7,7 @@ const wishlistProducts: WishlistProduct[] = [
         description: "Bluetooth 4.0 Module NRF51822 lorem ipsum lorem ipsum lorem ipsum lorem ipsum...",
         price: 273,
         oldPrice: 473,
-        image: "/images/product-image.png",
+        image: "/images/mywishlist-image.png",
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const wishlistProducts: WishlistProduct[] = [
         description: "Bluetooth 4.0 Module NRF51822 lorem ipsum lorem ipsum lorem ipsum lorem ipsum...",
         price: 273,
         oldPrice: 473,
-        image: "/images/product-image.png",
+        image: "/images/mywishlist-image.png",
     },
     {
         id: 3,
@@ -23,7 +23,7 @@ const wishlistProducts: WishlistProduct[] = [
         description: "Bluetooth 4.0 Module NRF51822 lorem ipsum lorem ipsum lorem ipsum lorem ipsum...",
         price: 273,
         oldPrice: 473,
-        image: "/images/product-image.png",
+        image: "/images/mywishlist-image.png",
     },
     {
         id: 4,
@@ -31,7 +31,7 @@ const wishlistProducts: WishlistProduct[] = [
         description: "Bluetooth 4.0 Module NRF51822 lorem ipsum lorem ipsum lorem ipsum lorem ipsum...",
         price: 273,
         oldPrice: 473,
-        image: "/images/product-image.png",
+        image: "/images/mywishlist-image.png",
     },
 ];
 

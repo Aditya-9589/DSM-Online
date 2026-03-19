@@ -40,7 +40,7 @@ export default function ProductCard({ product }: { product: Product }) {
             <div className="flex-grow flex flex-col">
                 {/* Title & Rating */}
                 <div className="flex justify-between items-start mb-1 sm:mb-2 gap-1 sm:gap-2">
-                    <h3 className="text-heading font-semibold text-[11px] sm:text-xs md:text-sm line-clamp-2">
+                    <h3 className="text-heading font-semibold text-[0.8rem] sm:text-xs md:text-sm line-clamp-2">
                         {product.title}
                     </h3>
                     <div className="flex text-yellow-400 text-[8px] sm:text-[10px] md:text-xs shrink-0 pt-0.5">
@@ -76,7 +76,7 @@ export default function ProductCard({ product }: { product: Product }) {
                     </div>
 
                     {/* Add To Cart */}
-                    <button className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg bg-primary-gradient text-white text-[9px] sm:text-[10px] md:text-xs font-semibold transition hover:shadow-md shrink-0">
+                    <button className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg bg-primary-gradient text-white text-[0.5rem] sm:text-[0.6rem] md:text-xs font-semibold transition hover:shadow-md shrink-0">
                         <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-3.5 md:h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg>
                         <span className="hidden sm:inline">Add To Cart</span>
                         <span className="sm:hidden">Add</span>

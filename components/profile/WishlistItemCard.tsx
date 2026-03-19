@@ -32,20 +32,21 @@ export default function WishlistItemCard({
                 </div>
 
                 <div className="flex-1 min-w-0">
-                    <h3 className="text-heading text-xl sm:text-2xl md:text-[2.1rem] font-semibold leading-tight">
+                    {/* <h3 className="text-heading text-xl sm:text-2xl md:text-[2.1rem] font-semibold leading-tight"> */}
+                    <h3 className="text-heading text-xl sm:text-base md:text-lg font-semibold leading-tight">
                         {product.title}
                     </h3>
 
-                    <p className="text-heading/80 text-sm sm:text-base md:text-[1.15rem] leading-relaxed mt-3 line-clamp-2">
+                    <p className="text-heading/80 text-lg sm:text-base md:text-[1rem] leading-relaxed mt-3 line-clamp-2">
                         {product.description}
                     </p>
 
                     <div className="flex items-end gap-2 sm:gap-3 mt-4">
-                        <span className="text-[#E47B25] text-2xl sm:text-[2rem] font-bold leading-none">
+                        <span className="text-[#E47B25] text-xl sm:text-lg font-bold leading-none">
                             {"\u20B9"}{product.price}
                         </span>
                         {product.oldPrice && (
-                            <span className="text-muted text-lg sm:text-xl line-through leading-none">
+                            <span className="text-muted text-lg sm:text-base line-through leading-none">
                                 {"\u20B9"}{product.oldPrice}
                             </span>
                         )}
@@ -54,7 +55,7 @@ export default function WishlistItemCard({
                     <div className="flex items-center gap-3 mt-5">
                         <button
                             type="button"
-                            className="bg-primary-gradient text-white px-5 sm:px-7 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-medium transition hover:shadow-md"
+                            className="bg-primary-gradient text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg text-[0.7rem] sm:text-[0.9rem] font-medium transition hover:shadow-md"
                         >
                             Add To Cart
                         </button>
@@ -64,7 +65,7 @@ export default function WishlistItemCard({
                             aria-label={`Remove ${product.title} from wishlist`}
                             className="text-[#7A7A7A] hover:text-[#BA460F] transition"
                         >
-                            <Trash2 className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={1.75} />
+                            <Trash2 className="w-4 h-4 sm:w-6 sm:h-6" strokeWidth={1.75} />
                         </button>
                     </div>
                 </div>
