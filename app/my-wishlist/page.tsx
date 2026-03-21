@@ -2,8 +2,8 @@ import {
     FeatureHighlights,
     ProfileSidebar,
     RelatedProducts,
-    WishlistPanel,
 } from "@/components/profile";
+import { WishlistPanel } from "@/components/my-wishlist";
 
 export default function MyWishlistPage() {
     return (

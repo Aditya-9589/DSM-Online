@@ -6,7 +6,7 @@ interface ProfileCardWrapperProps {
     title: string;
     description?: string;
     children: React.ReactNode;
-    action?: React.ReactNode; 
+    action?: React.ReactNode;
 }
 
 export default function ProfileCardWrapper({
@@ -16,22 +16,20 @@ export default function ProfileCardWrapper({
     action,
 }: ProfileCardWrapperProps) {
     return (
-        <div className="card p-4 sm:p-5 md:p-8 rounded-[16px] sm:rounded-[20px] md:rounded-[24px] min-w-0">
-            {/* Header */}
-            <div className="flex flex-col items-start sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6">
+        <div className="card min-w-0 rounded-[24px] border-white bg-white p-5 shadow-[0_14px_40px_rgba(15,23,42,0.04)] sm:rounded-[28px] sm:p-6 md:p-9">
+            <div className="mb-5 flex flex-col items-start justify-between gap-4 sm:mb-6 sm:flex-row sm:items-start">
                 <div>
-                    <h3 className="text-heading text-base sm:text-lg md:text-xl font-bold">
+                    <h3 className="text-heading text-2xl font-semibold tracking-[-0.02em] sm:text-[2rem]">
                         {title}
                     </h3>
                     {description && (
-                        <p className="text-muted text-xs sm:text-sm mt-0.5 sm:mt-1">{description}</p>
+                        <p className="mt-1 text-lg text-[#9a909d]">{description}</p>
                     )}
                 </div>
 
                 {action && action}
             </div>
 
-            {/* Content */}
             {children}
         </div>
     );

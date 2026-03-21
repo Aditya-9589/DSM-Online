@@ -1,13 +1,10 @@
 
-// import ProfileSidebar from "@/components/profile/ProfileSidebar";
-// import ProfileHeaderCard from "@/components/profile/ProfileHeaderCard";
-// import PersonalInfoCard from "@/components/profile/PersonalInfoCard";
-// import CompanyInfoCard from "@/components/profile/CompanyInfoCard";
-// import AddressCard from "@/components/profile/AddressCard";
-// import RelatedProducts from "@/components/profile/RelatedProducts";
-// import FeatureHighlights from "@/components/profile/FeatureHighlights";
-
-import { ProfileSidebar, ProfileHeaderCard, PersonalInfoCard, CompanyInfoCard, AddressCard, FeatureHighlights, RelatedProducts } from "@/components/profile";
+import {
+    FeatureHighlights,
+    ProfileEditableSections,
+    ProfileSidebar,
+    RelatedProducts,
+} from "@/components/profile";
 
 
 export default function ProfilePage() {
@@ -29,16 +26,15 @@ export default function ProfilePage() {
                     </div>
 
                     {/* Right Content */}
-                    <div className="col-span-12 lg:col-span-9 space-y-4 md:space-y-6 min-w-0">
-                        <div className="mb-1 md:mb-2">
-                            <h1 className="text-heading text-xl md:text-2xl font-bold inline-block pb-2 border-b-4 border-orange-500 min-w-[120px] md:min-w-[150px] max-w-full">
-                                Profile
-                            </h1>
+                    <div className="col-span-12 lg:col-span-9 min-w-0">
+                        <div className="rounded-[28px] bg-[#f8f7f5] p-4 sm:p-6 md:rounded-[34px] md:p-8">
+                            <div className="mb-1 md:mb-2">
+                                <h1 className="text-heading inline-block min-w-[120px] max-w-full border-b-4 border-orange-500 pb-2 text-2xl font-semibold md:min-w-[180px] md:text-[2.125rem]">
+                                    Profile
+                                </h1>
+                            </div>
+                            <ProfileEditableSections />
                         </div>
-                        <ProfileHeaderCard />
-                        <PersonalInfoCard />
-                        <CompanyInfoCard />
-                        <AddressCard />
                     </div>
                 </div>
 

@@ -1,33 +1,152 @@
-import ProfileCardWrapper from "./ProfileCardWrapper";
-import { Building2, Edit } from "lucide-react";
+"use client";
 
-export default function CompanyInfoCard() {
+import { useState } from "react";
+import { Building2, Edit } from "lucide-react";
+import ProfileCardWrapper from "./ProfileCardWrapper";
+import ProfileFormField from "./ProfileFormField";
+import type { CompanyInfo } from "./profileTypes";
+
+interface CompanyInfoCardProps {
+    data: CompanyInfo;
+    isEditing: boolean;
+    onEdit: () => void;
+    onCancel: () => void;
+    onSave: (nextCompanyInfo: CompanyInfo) => void;
+}
+
+const buttonClassName =
+    "rounded-xl px-5 py-3 text-sm font-medium transition sm:px-7 sm:text-base";
+
+interface CompanyInfoFormProps {
+    initialData: CompanyInfo;
+    onCancel: () => void;
+    onSave: (nextCompanyInfo: CompanyInfo) => void;
+}
+
+function CompanyInfoForm({
+    initialData,
+    onCancel,
+    onSave,
+}: CompanyInfoFormProps) {
+    const [formData, setFormData] = useState<CompanyInfo>(initialData);
+
+    return (
+        <form
+            id="company-info-form"
+            onSubmit={(event) => {
+                event.preventDefault();
+                onSave(formData);
+            }}
+            className="space-y-5"
+        >
+            <div className="grid grid-cols-1 gap-4">
+                <ProfileFormField
+                    id="company-gst-number"
+                    label="GST Number"
+                    value={formData.gstNumber}
+                    onChange={(value) =>
+                        setFormData((current) => ({
+                            ...current,
+                            gstNumber: value,
+                        }))
+                    }
+                    placeholder="Enter GST number"
+                    showEditIcon
+                />
+                <ProfileFormField
+                    id="company-name"
+                    label="Company Name"
+                    value={formData.companyName}
+                    onChange={(value) =>
+                        setFormData((current) => ({
+                            ...current,
+                            companyName: value,
+                        }))
+                    }
+                    placeholder="Enter company name"
+                    showEditIcon
+                />
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+                <button
+                    type="button"
+                    onClick={onCancel}
+                    className="text-sm font-medium text-[#8f8590] transition hover:text-heading"
+                >
+                    Cancel
+                </button>
+            </div>
+        </form>
+    );
+}
+
+export default function CompanyInfoCard({
+    data,
+    isEditing,
+    onEdit,
+    onCancel,
+    onSave,
+}: CompanyInfoCardProps) {
+    if (isEditing) {
+        return (
+            <ProfileCardWrapper
+                title="Company Details"
+                description="Update only the company name and GST details here."
+                action={
+                    <button
+                        type="submit"
+                        form="company-info-form"
+                        className={`bg-primary-gradient text-white shadow-sm hover:shadow-md ${buttonClassName}`}
+                    >
+                        Save
+                    </button>
+                }
+            >
+                <CompanyInfoForm
+                    key={`${data.gstNumber}-${data.companyName}`}
+                    initialData={data}
+                    onCancel={onCancel}
+                    onSave={onSave}
+                />
+            </ProfileCardWrapper>
+        );
+    }
+
     return (
         <ProfileCardWrapper
             title="Company Details"
             description="Manage your details with ease."
             action={
-                <button className="bg-primary-gradient text-white flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition hover:shadow-md">
+                <button
+                    type="button"
+                    onClick={onEdit}
+                    className={`bg-primary-gradient text-white flex items-center gap-1.5 hover:shadow-md sm:gap-2 ${buttonClassName}`}
+                >
                     <span>Edit</span>
-                    <Edit size={12} className="sm:w-3.5 sm:h-3.5" />
+                    <Edit size={12} className="sm:h-3.5 sm:w-3.5" />
                 </button>
             }
         >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-10 gap-y-5 sm:gap-y-8 text-sm mt-1 sm:mt-2">
+            <div className="mt-2 grid grid-cols-1 gap-y-6 text-sm">
                 <div>
-                    <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2 text-muted">
-                        <Building2 size={14} className="sm:w-4 sm:h-4 shrink-0" />
-                        <p className="text-xs sm:text-sm">GST Number</p>
+                    <div className="mb-2 flex items-center gap-2 text-muted">
+                        <Building2 size={14} className="shrink-0 sm:h-4 sm:w-4" />
+                        <p className="text-sm">GST Number</p>
                     </div>
-                    <p className="text-heading font-medium text-sm sm:text-base">2345-3564-82YSD566</p>
+                    <p className="text-heading text-base font-medium sm:text-lg">
+                        {data.gstNumber}
+                    </p>
                 </div>
 
                 <div>
-                    <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2 text-muted">
-                        <Building2 size={14} className="sm:w-4 sm:h-4 shrink-0" />
-                        <p className="text-xs sm:text-sm">Company Name</p>
+                    <div className="mb-2 flex items-center gap-2 text-muted">
+                        <Building2 size={14} className="shrink-0 sm:h-4 sm:w-4" />
+                        <p className="text-sm">Company Name</p>
                     </div>
-                    <p className="text-heading font-medium text-sm sm:text-base">ABC Firm Pvt. ltd</p>
+                    <p className="text-heading text-base font-medium sm:text-lg">
+                        {data.companyName}
+                    </p>
                 </div>
             </div>
         </ProfileCardWrapper>
